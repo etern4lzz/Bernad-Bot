@@ -1,6 +1,7 @@
 {
   "PRIVATE": {
     "TOKEN": "",
-    "CLIENT_ID": ""
+    "CLIENT_ID": "",
+    "GUILD_ID": ""
   }
 }
