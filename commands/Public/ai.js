@@ -4,8 +4,8 @@ const {
 } = require('discord.js');
 
 const handlerAi = require('../../handlers/handlerAi');
-const config = require('../../config/config.json');
-const API_KEY = config.PRIVATE.API_KEY;
+const { API_KEY } = require('../../config/private.json');
+const { AI_CHANNEL } = require('../../config/public.json');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -22,6 +22,16 @@ module.exports = {
     const pertanyaan = interaction.options.getString('question');
 
     await interaction.deferReply();
+    
+    if (interaction.channelId !== AI_CHANNEL) {
+    return interaction.editReply({
+      embeds: [
+        new EmbedBuilder()
+        .setColor('#2b2d31')
+        .setDescription(`This command only works in <#${AI_CHANNEL}>`)
+        ]
+      });
+    }
 
     try {
       const result = await handlerAi(

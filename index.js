@@ -8,10 +8,7 @@ const {
 
 const path = require('path');
 const fs = require('fs');
-const config = require('./config/config.json');
-const TOKEN = config.PRIVATE.TOKEN;
-const CLIENT_ID = config.PRIVATE.CLIENT_ID;
-const GUILD_ID = config.PRIVATE.GUILD_ID;
+const { TOKEN, CLIENT_ID } = require('./config/private.json');
 
 
 const client = new Client({

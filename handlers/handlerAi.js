@@ -1,5 +1,5 @@
 const axios = require('axios');
-const config = require('../config/config.json');
+const { API_KEY } = require('../config/private.json');
 
 const handlerAi = async (API_KEY, messages, options = {}) => {
   const {
