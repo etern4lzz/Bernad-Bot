@@ -4,12 +4,16 @@ module.exports = {
   name: Events.ClientReady,
   once: true,
 
-  async execute(client) {
+  execute(client) { // fix async 
     console.log(`[ Status ] Ready! Logged in as ${client.user.tag}`);
-
-    client.user.setActivity({
-      name: 'Chilling',
-      type: ActivityType.Watching
-    });
+    
+    // Improve the activity 
+    client.user.setPresence({
+      activities: [{
+        name: "Bernad good's",
+        type:  ActivityType.Watching
+      }],
+      status: 'idle'
+    })
   }
 };
